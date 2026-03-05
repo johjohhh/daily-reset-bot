@@ -2,7 +2,20 @@ import discord
 import asyncio
 import os
 import time
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import threading
 from datetime import datetime, timedelta, timezone
+
+def run_web():
+    port = int(os.environ.get("PORT", "10000"))
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"ok")
+    HTTPServer(("0.0.0.0", port), Handler).serve_forever()
+
+threading.Thread(target=run_web, daemon=True).start()
 
 TOKEN = os.getenv("TOKEN")
 CHANNEL_ID = 1479109013063995423
@@ -45,3 +58,4 @@ async def on_ready():
 print("Starting bot…")
 time.sleep(10)
 client.run(TOKEN)
+
