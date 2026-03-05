@@ -62,6 +62,7 @@ async def on_ready():
     client.loop.create_task(updater())
 
 print("Starting bot...")
-time.sleep(10)
+time.sleep(600)
 
 client.run(TOKEN)
+
