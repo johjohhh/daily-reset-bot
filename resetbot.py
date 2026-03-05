@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import os
+import time
 from datetime import datetime, timedelta, timezone
 
 TOKEN = os.getenv("TOKEN")
@@ -41,4 +42,6 @@ async def on_ready():
     print(f"Logged in as {client.user}")
     client.loop.create_task(updater())
 
+print("Starting bot…")
+time.sleep(10)
 client.run(TOKEN)
