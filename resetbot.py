@@ -16,6 +16,10 @@ def run_web():
             self.end_headers()
             self.wfile.write(b"ok")
 
+        def do_HEAD(self):
+            self.send_response(200)
+            self.end_headers()
+
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
 
 threading.Thread(target=run_web, daemon=True).start()
@@ -65,4 +69,5 @@ print("Starting bot...")
 time.sleep(600)
 
 client.run(TOKEN)
+
 
