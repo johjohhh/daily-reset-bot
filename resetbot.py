@@ -50,7 +50,7 @@ async def updater():
         hours = total // 3600
         minutes = (total % 3600) // 60
 
-        new_name = f"Daily Reset: {hours:02d}h {minutes:02d}m"
+        new_name = f"Reset Countdown: {hours:02d}h {minutes:02d}m"
 
         try:
             await channel.edit(name=new_name)
@@ -66,9 +66,10 @@ async def on_ready():
     client.loop.create_task(updater())
 
 print("Starting bot...")
-time.sleep(600)
+time.sleep(240)
 
 client.run(TOKEN)
+
 
 
 
