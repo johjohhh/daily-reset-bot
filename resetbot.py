@@ -58,7 +58,7 @@ async def updater():
         except Exception as e:
             print("Rename failed:", repr(e))
 
-        await asyncio.sleep(300)  # update every 5 minutes
+        await asyncio.sleep(240)  # update every 4 minutes
 
 @client.event
 async def on_ready():
@@ -69,6 +69,7 @@ print("Starting bot...")
 time.sleep(240)
 
 client.run(TOKEN)
+
 
 
 
