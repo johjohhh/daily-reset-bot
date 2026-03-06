@@ -29,7 +29,7 @@ TOKEN = os.getenv("TOKEN")
 if not TOKEN:
     raise RuntimeError("TOKEN env var is missing. Add TOKEN in Render Environment Variables.")
 
-CHANNEL_ID = 1479109013063995423
+CHANNEL_ID = 1479168730213646528
 TZ = timezone(timedelta(hours=8))  # GMT+8
 
 intents = discord.Intents(guilds=True)
@@ -69,5 +69,6 @@ print("Starting bot...")
 time.sleep(600)
 
 client.run(TOKEN)
+
 
 
